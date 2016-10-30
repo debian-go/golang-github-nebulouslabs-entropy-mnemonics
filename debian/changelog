@@ -1,0 +1,5 @@
+golang-github-nebulouslabs-entropy-mnemonics (0.0~git20150811.0.6afa27f-1) unstable; urgency=medium
+
+  * Initial release (Closes: #850062)
+
+ -- Free Ekanayaka <freee@debian.org>  Sun, 30 Oct 2016 15:03:33 +0000
