@@ -1,11 +1,16 @@
-sudo: required
+language: go
 
-services:
-  - docker
+go:
+  - 1.8
 
-script:
-  - wget -O- http://travis.debian.net/script.sh | sh -
+install:
+  - go get -u github.com/golang/lint/golint
+  - go get -u golang.org/x/tools/cmd/cover
+  - go get -u golang.org/x/text/unicode/norm
+  - test -z "$(go fmt)"
+  - test -z "$(golint)"
+  - test -z "$(go vet)"
 
-branches:
-  except:
-    - /^debian\/\d/
+script: go test -v -bench=. && go test -covermode=atomic && go install
+
+sudo: false
